@@ -1,0 +1,9 @@
+#!/bin/bash
+
+process_cnt=`ps -ef | grep -v grep | grep "backendPulse" | awk '{print $2}'`
+
+if [[ ${process_cnt} != "" ]]
+then
+        kill -9 ${process_cnt}
+fi
+

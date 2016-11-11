@@ -1,0 +1,28 @@
+<!-- Project -->
+<td id="{{.Id}}" class="{{.Data}}" rowspan="{{.EnvCount}}" width="15%">{{.Title}}
+</td>
+
+<!-- List of environments -->
+{{range .Environments}}	
+		<td id="{{.Id}}" class="{{.Data}}" rowspan="{{.AppCount}}" width="15%">{{.Title}}
+		</td>
+		
+	<!-- List of applications -->
+	{{range .Applications}}	
+		<td id="{{.Id}}" class="{{.Data}}" rowspan="1" align="center"><a href="http://nexus.global.organization.org/nexus/service/local/repositories/15_OFS/content/pulse/{{.HtmlPath}}" style="text-decoration: none">{{.Title}}</a>
+		<script type="text/javascript">
+   			(function() {
+   			 	var data = document.getElementById("{{.Id}}");
+	   			var conn = new WebSocket("ws://{{.Host}}/ws?lastMod={{.LastMod}}&dataFile={{.DataFile}}");
+	   			conn.onclose = function(evt) {
+	       				data.className='default';
+	   			}
+	   			conn.onmessage = function(evt) {
+	       			console.log('file updated');
+	       			data.className=evt.data;
+	   			}
+	 	})();
+	 	</script>	
+		</td><tr>
+	{{end}}
+{{end}}	

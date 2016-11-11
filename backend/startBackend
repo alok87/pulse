@@ -1,0 +1,10 @@
+#!/bin/bash
+
+process_cnt=`ps -ef | grep -v grep | grep "backendPulse" | wc -l`
+
+if [[ ${process_cnt} != 1 ]]
+then
+	cd /home/vc46/pulse
+        nohup ./backendPulse > /dev/null 2>&1 &
+fi
+

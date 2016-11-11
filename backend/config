@@ -1,0 +1,3 @@
+APP#dvofsomsap008uk.dev.global.organization.org#URL#http://dvofsomsap008uk.dev.global.organization.org:9001/smcfs/console/login.jsp#
+BATCH#dvofsintap010uk.dev.global.organization.org#PROCESS#ReceiveAmendOrderJMSServer ReceiveCreateOrderJMSServer PurgeOrderAGTServer#
+SEARCH#dvofsserap009uk.dev.global.organization.org#PROCESS#ElasticSearch#
